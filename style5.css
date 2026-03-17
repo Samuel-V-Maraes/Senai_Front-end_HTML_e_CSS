@@ -1,0 +1,79 @@
+body{
+font-family: Arial, Helvetica, sans-serif;
+background:#e6e6e6;
+padding:40px;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+/* FUNDO COLORIDO */
+
+.fundo{
+
+background: linear-gradient(135deg,#5f5fc4,#9b4db8,#c64da7);
+padding:60px;
+border-radius:6px;
+
+}
+
+/* CAIXA DA TABELA */
+
+.tabela-box{
+
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+
+}
+
+/* TABELA */
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+}
+
+/* CABEÇALHO */
+
+thead{
+
+background:#3c334f;
+color:white;
+
+}
+
+th{
+
+padding:16px;
+text-align:left;
+font-weight:600;
+font-size:14px;
+
+}
+
+/* LINHAS */
+
+td{
+
+padding:14px 16px;
+font-size:14px;
+color:#555;
+
+}
+
+tbody tr:nth-child(even){
+
+background:#f2f2f2;
+
+}
+
+tbody tr:nth-child(odd){
+
+background:#ffffff;
+
+}

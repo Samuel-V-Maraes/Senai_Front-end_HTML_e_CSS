@@ -1,0 +1,109 @@
+body{
+font-family: Arial, Helvetica, sans-serif;
+margin:0;
+padding:40px;
+background:#e6e6e6;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+/* FUNDO AZUL + BRANCO */
+
+.fundo{
+
+height:900px;
+
+background: linear-gradient(
+to bottom,
+#5f7dd9 0%,
+#4f6fd6 60%,
+#ffffff 60%,
+#ffffff 100%
+);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+/* CARD LOGIN */
+
+.login-box{
+
+background:white;
+width:420px;
+padding:40px;
+border-radius:20px;
+text-align:center;
+
+box-shadow:
+0 15px 0 #4f6fd6,
+0 25px 40px rgba(0,0,0,0.2);
+
+}
+
+.login-box h1{
+
+color:#4f6fd6;
+margin-bottom:30px;
+
+}
+
+label{
+
+display:block;
+font-size:12px;
+color:#777;
+margin-bottom:5px;
+text-align:left;
+
+}
+
+input{
+
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:none;
+background:#e6e6e6;
+
+}
+
+.remember{
+
+font-size:12px;
+color:#777;
+margin-bottom:15px;
+text-align:left;
+
+}
+
+button{
+
+width:100%;
+padding:12px;
+background:#4f6fd6;
+color:white;
+border:none;
+cursor:pointer;
+
+}
+
+.links{
+
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+font-size:12px;
+
+}
+
+.links a{
+
+color:#4f6fd6;
+text-decoration:none;
+
+}
