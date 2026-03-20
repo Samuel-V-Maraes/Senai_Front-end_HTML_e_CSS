@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* FUNDO GERAL */
+.bg {
+  background: #7fa3a3;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTAINER COM IMAGEM */
+.container-img {
+  width: 2100px;
+  height: 1000px;
+
+  background: url("../img/Cadastro\ de\ usuário\ com\ laptop.png") no-repeat center;
+  background-size: cover;
+
+  position: relative;
+  border-radius: 5px;
+}
+
+/* FORM FLUTUANTE */
+.form-box {
+  position: absolute;
+  right: 400px;
+  top: 200px;
+
+  width: 480px;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* INPUT */
+.input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+}
+
+/* BOTÃO */
+.bottom {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom button {
+  background: linear-gradient(90deg, #2f80ed, #56ccf2);
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 25px;
+}

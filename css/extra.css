@@ -1,0 +1,156 @@
+/* RESET */
+/* Remove espaçamentos padrão e define padrão global */
+* {
+    margin: 0; /* Remove margens */
+    padding: 0; /* Remove espaçamentos internos */
+    box-sizing: border-box; /* Inclui padding e border no tamanho total */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+}
+
+/* FUNDO LARANJA COM LINHAS */
+body {
+    height: 100vh; /* Altura total da tela */
+
+    display: flex; /* Ativa Flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+
+    background: 
+        /* Linhas horizontais transparentes */
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.08) 0px,
+            rgba(255,255,255,0.08) 2px,
+            transparent 2px,
+            transparent 8px
+        ),
+        /* Gradiente laranja */
+        linear-gradient(90deg, #ff5a2a, #ff7a1a);
+}
+
+/* CONTAINER */
+/* Centraliza o conteúdo interno */
+.container {
+    text-align: center;
+}
+
+/* CAIXA LOGIN */
+.login-box {
+    background: #ddd; /* Fundo cinza claro */
+    width: 420px; /* Largura fixa */
+    padding: 40px 30px; /* Espaçamento interno */
+    border-radius: 4px; /* Bordas arredondadas */
+    position: relative; /* Permite posicionamento absoluto interno */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Sombra */
+}
+
+/* BOTÃO FECHAR */
+.close {
+    position: absolute; /* Posicionamento relativo à .login-box */
+    top: 10px; /* Distância do topo */
+    right: 10px; /* Distância da direita */
+    background: #ff5a2a; /* Cor laranja */
+    color: white; /* Cor do texto */
+    font-size: 14px;
+    padding: 4px 8px;
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+}
+
+/* TÍTULO */
+.login-box h2 {
+    color: #555; /* Cinza escuro */
+    margin-bottom: 10px;
+}
+
+/* SUBTÍTULO */
+.subtitle {
+    font-size: 12px;
+    color: #aaa; /* Cinza claro */
+    margin-bottom: 25px;
+}
+
+/* LINK DO SUBTÍTULO */
+.subtitle a {
+    color: #aaa;
+    text-decoration: underline; /* Sublinhado */
+}
+
+/* INPUT GROUP */
+/* Agrupa input + ícones */
+.input-group {
+    display: flex; /* Alinha lado a lado */
+    margin-bottom: 15px;
+}
+
+/* ÍCONES (lado esquerdo e direito) */
+.input-group-text {
+    background: #ff5a2a; /* Fundo laranja */
+    color: white; /* Cor do ícone */
+    padding: 12px;
+
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+/* INPUT */
+.input-group input {
+    flex: 1; /* Ocupa todo o espaço disponível */
+    padding: 12px;
+    border: none; /* Remove borda */
+    outline: none; /* Remove borda ao clicar */
+    background: #eee; /* Fundo cinza claro */
+}
+
+/* ÍCONE DIREITA (OLHO) */
+/* Sobrescreve estilo do último ícone */
+.input-group .input-group-text:last-child {
+    background: #eee; /* Mesmo fundo do input */
+    color: #aaa; /* Cor mais suave */
+}
+
+/* AÇÕES */
+/* Área do botão + opções */
+.actions {
+    display: flex;
+    justify-content: space-between; /* Espaço entre botão e opções */
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* BOTÃO */
+button {
+    background: #ff5a2a; /* Laranja */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* OPÇÕES */
+.options {
+    font-size: 12px;
+    color: #666;
+    text-align: left;
+}
+
+/* CHECKBOX */
+.options input {
+    margin-right: 5px;
+}
+
+/* LINK ESQUECI SENHA */
+.options a {
+    display: block; /* Fica abaixo */
+    margin-top: 5px;
+    color: #666;
+    text-decoration: none;
+}
+
+/* RODAPÉ */
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #f5c6a5; /* Cor clara */
+}

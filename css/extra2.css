@@ -1,0 +1,86 @@
+/* FUNDO DA PÁGINA */
+body {
+  background: #555a74; /* Cor de fundo (azul acinzentado) */
+  font-family: Arial, sans-serif; /* Fonte padrão */
+}
+
+/* CARD DE LOGIN */
+.login-card {
+  width: 350px; /* Largura fixa */
+  border-radius: 10px; /* Bordas arredondadas */
+  overflow: hidden; /* Esconde conteúdo que ultrapassar o card */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra suave */
+  background: #f5f5f5; /* Fundo claro */
+}
+
+/* HEADER (PARTE DE CIMA) */
+.login-header {
+  background: linear-gradient(135deg, #ff0057, #ff3c87);
+  /* Gradiente rosa */
+
+  color: white; /* Cor do texto */
+  padding: 30px 0; /* Espaçamento vertical */
+  position: relative; /* Base para posicionamentos internos */
+}
+
+/* ÍCONE DO HEADER */
+.login-header i {
+  font-size: 24px; /* Tamanho do ícone */
+  display: block; /* Faz ocupar linha inteira */
+  margin-bottom: 5px; /* Espaço abaixo */
+}
+
+/* TÍTULO DO HEADER */
+.login-header h2 {
+  margin: 0; /* Remove margem padrão */
+  font-weight: bold; /* Texto em negrito */
+}
+
+/* CORPO DO CARD */
+.login-body {
+  padding: 25px; /* Espaçamento interno */
+}
+
+/* INPUTS (Bootstrap sobrescrito) */
+.form-control {
+  background: #eaeaea; /* Fundo cinza claro */
+  border: none; /* Remove borda padrão */
+}
+
+/* EFEITO AO CLICAR NO INPUT */
+.form-control:focus {
+  box-shadow: none; /* Remove sombra azul do Bootstrap */
+  background: #e0e0e0; /* Muda levemente a cor */
+}
+
+/* CHECKBOX PERSONALIZADO */
+.custom-check {
+  accent-color: #ff0057; /* Cor rosa no checkbox */
+}
+
+/* BOTÃO LOGIN */
+.btn-login {
+  background: #7fd1c9; /* Cor verde/azulada */
+  border: none; /* Remove borda */
+  border-radius: 20px; /* Botão arredondado */
+  color: white; /* Texto branco */
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* EFEITO HOVER NO BOTÃO */
+.btn-login:hover {
+  background: #5bb8b0; /* Cor mais escura ao passar o mouse */
+}
+
+/* LINKS */
+a {
+  color: #999; /* Cinza */
+  text-decoration: none; /* Remove sublinhado */
+}
+
+/* HOVER NOS LINKS */
+a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
