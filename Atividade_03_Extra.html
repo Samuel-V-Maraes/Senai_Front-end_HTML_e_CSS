@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- Define o documento como HTML5 -->
+
+<html lang="pt-br">
+<!-- Define o idioma da página -->
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Permite acentuação correta -->
+
+  <title>Login</title>
+  <!-- Título da aba -->
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Framework CSS para layout, grid e componentes -->
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Biblioteca de ícones -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style3.css">
+  <!-- Seu CSS personalizado -->
+</head>
+
+<body>
+<!-- Corpo da página -->
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <!-- 
+    container: centraliza conteúdo
+    d-flex: ativa Flexbox
+    justify-content-center: centraliza horizontalmente
+    align-items-center: centraliza verticalmente
+    vh-100: altura total da tela
+  -->
+
+  <div class="login-box d-flex">
+    <!-- 
+      Caixa principal do login
+      d-flex: deixa os lados (left e right) lado a lado
+    -->
+
+    <!-- Lado esquerdo -->
+    <div class="left p-4">
+      <!-- p-4: padding interno -->
+
+      <div class="input-box mb-3">
+        <!-- Campo de usuário -->
+
+        <i class="bi bi-person-fill"></i>
+        <!-- Ícone de usuário -->
+
+        <input type="text" placeholder="Username">
+        <!-- Campo de texto -->
+      </div>
+
+      <div class="input-box mb-3">
+        <!-- Campo de senha -->
+
+        <i class="bi bi-lock-fill"></i>
+        <!-- Ícone de cadeado -->
+
+        <input type="password" placeholder="********">
+        <!-- Campo de senha -->
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center small mt-3">
+        <!-- 
+          d-flex: deixa elementos lado a lado
+          justify-content-between: separa esquerda/direita
+          align-items-center: alinha verticalmente
+          small: reduz tamanho do texto
+          mt-3: margem superior
+        -->
+
+        <a href="#">Forgot Password?</a>
+        <!-- Link de recuperação de senha -->
+
+        <div class="form-check">
+          <!-- Grupo de checkbox -->
+
+          <input class="form-check-input" type="checkbox">
+          <!-- Checkbox -->
+
+          <label class="form-check-label">
+            Remember me
+          </label>
+          <!-- Texto do checkbox -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Lado direito -->
+    <div class="right d-flex justify-content-center align-items-center">
+      <!-- 
+        d-flex + center: centraliza o conteúdo (LOGIN) no meio
+      -->
+
+      <h3>LOGIN</h3>
+      <!-- Título grande lateral -->
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
