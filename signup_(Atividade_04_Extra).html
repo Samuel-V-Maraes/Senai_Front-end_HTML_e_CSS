@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Signup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1A6BFF;
+      --blue-dark: #1455CC;
+      --teal-bg: #5A9EA0;
+      --light-bg: #EAF4F4;
+      --text-dark: #1A1F36;
+      --text-mid: #5A6070;
+      --text-light: #9AA0B0;
+      --white: #FFFFFF;
+      --green: #22C55E;
+      --yellow: #F5A623;
+      --shadow: 0 20px 60px rgba(26,107,255,0.13);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--teal-bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-x: hidden;
+    }
+
+    /* Outer card */
+    .page-card {
+      background: var(--light-bg);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 960px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.18);
+      animation: cardIn 0.6s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(32px) scale(0.97); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* Nav */
+    nav {
+      display: flex;
+      align-items: center;
+      padding: 20px 36px;
+      gap: 32px;
+    }
+
+    .logo {
+      width: 36px; height: 36px;
+      background: var(--yellow);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      flex: 1;
+    }
+
+    nav ul li a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav ul li a:hover { color: var(--blue); }
+    nav ul li a.active {
+      color: var(--blue);
+      font-weight: 600;
+      border-bottom: 2px solid var(--blue);
+      padding-bottom: 2px;
+    }
+
+    .live-chat-btn {
+      margin-left: auto;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 9px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .live-chat-btn:hover { background: var(--blue-dark); transform: scale(1.04); }
+    .live-chat-btn::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: #5EF08A;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Body split */
+    .body-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      min-height: 520px;
+    }
+
+    /* Left panel */
+    .left-panel {
+      padding: 40px 36px 40px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .left-panel h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    .left-panel h1 span { color: var(--blue); }
+
+    .left-panel p.lead {
+      color: var(--text-mid);
+      font-size: 13.5px;
+      line-height: 1.7;
+      max-width: 260px;
+      margin-bottom: 28px;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.55;
+    }
+
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .check-icon.green { background: var(--green); }
+    .check-icon.yellow { background: var(--yellow); }
+
+    .check-icon svg { width: 12px; height: 12px; }
+
+    /* Laptop illustration */
+    .laptop-wrap {
+      position: relative;
+      height: 160px;
+      margin-top: auto;
+    }
+
+    .laptop {
+      width: 220px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .laptop-body {
+      background: #1A1F36;
+      border-radius: 10px 10px 0 0;
+      height: 110px;
+      width: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .laptop-screen {
+      background: var(--light-bg);
+      width: 190px;
+      height: 88px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-icon {
+      position: relative;
+    }
+
+    .avatar-circle {
+      width: 50px; height: 50px;
+      background: var(--yellow);
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .avatar-head {
+      width: 18px; height: 18px;
+      background: #D4870D;
+      border-radius: 50%;
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .avatar-body {
+      width: 32px; height: 20px;
+      background: #D4870D;
+      border-radius: 16px 16px 0 0;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .arrow-btn {
+      position: absolute;
+      bottom: -2px;
+      right: -4px;
+      width: 26px; height: 26px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .arrow-btn svg { width: 12px; height: 12px; }
+
+    .laptop-base {
+      background: #252B45;
+      height: 12px;
+      width: 240px;
+      border-radius: 0 0 6px 6px;
+      margin: 0 auto;
+    }
+
+    /* Right panel (blue bg + form card) */
+    .right-panel {
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 28px;
+    }
+
+    .form-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px 28px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: var(--shadow);
+      animation: formIn 0.7s 0.15s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    @keyframes formIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 18px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field-group.full { grid-column: span 2; }
+
+    .field-group label {
+      font-family: 'Syne', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: 0.01em;
+    }
+
+    .field-group input,
+    .field-group select {
+      height: 44px;
+      border: 1.5px solid #E5E8EF;
+      border-radius: 10px;
+      padding: 0 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      color: var(--text-dark);
+      background: white;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+      appearance: none;
+    }
+
+    .field-group input::placeholder { color: var(--text-light); }
+
+    .field-group input:focus,
+    .field-group select:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(26,107,255,0.12);
+    }
+
+    .select-wrap {
+      position: relative;
+    }
+
+    .select-wrap::after {
+      content: '';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid var(--text-mid);
+      pointer-events: none;
+    }
+
+    .select-wrap select { padding-right: 34px; cursor: pointer; }
+
+    /* Phone field */
+    .phone-wrap {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #E5E8EF;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .phone-wrap:focus-within {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(26,107,255,0.12);
+    }
+
+    .phone-flag {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0 10px;
+      border-right: 1.5px solid #E5E8EF;
+      height: 44px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .flag-circle {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: conic-gradient(#F5A623 0deg 180deg, #1A6BFF 180deg 360deg);
+    }
+
+    .phone-flag span { font-size: 12px; color: var(--text-mid); font-weight: 500; }
+    .phone-flag .caret { font-size: 10px; color: var(--text-light); }
+
+    .phone-wrap input {
+      border: none;
+      border-radius: 0;
+      flex: 1;
+      height: 44px;
+    }
+    .phone-wrap input:focus { box-shadow: none; }
+
+    /* DOB row */
+    .dob-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+
+    .dob-row .select-wrap select {
+      padding: 0 10px;
+      font-size: 13px;
+    }
+
+    /* Password */
+    .pass-wrap {
+      position: relative;
+    }
+
+    .pass-wrap input { padding-right: 40px; }
+
+    .pass-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-light);
+      padding: 2px;
+      display: flex;
+    }
+
+    /* Terms */
+    .terms-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .terms-row input[type="checkbox"] {
+      width: 18px; height: 18px;
+      accent-color: var(--blue);
+      cursor: pointer;
+    }
+
+    .terms-row label {
+      font-size: 13px;
+      color: var(--text-mid);
+      cursor: pointer;
+    }
+
+    .terms-row label a {
+      color: var(--text-dark);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .terms-row label a:hover { color: var(--blue); }
+
+    /* Bottom row */
+    .form-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 16px;
+    }
+
+    .btn-submit {
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 13px 28px;
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      flex-shrink: 0;
+    }
+
+    .btn-submit:hover {
+      background: var(--blue-dark);
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(26,107,255,0.35);
+    }
+
+    .btn-submit:active { transform: scale(0.98); }
+
+    /* Login link */
+    .login-link {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-mid);
+    }
+
+    .login-link a {
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .login-link a:hover { color: var(--blue-dark); text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .body-wrap { grid-template-columns: 1fr; }
+      .laptop-wrap { display: none; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field-group.full { grid-column: span 1; }
+      .form-bottom { flex-direction: column; }
+      .btn-submit { width: 100%; }
+      nav ul { display: none; }
+      .left-panel h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-card">
+
+  <!-- Nav -->
+  <nav>
+    <div class="logo">👑</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#" class="active">Signup</a></li>
+    </ul>
+    <button class="live-chat-btn">Live Chat</button>
+  </nav>
+
+  <!-- Body -->
+  <div class="body-wrap">
+
+    <!-- Left -->
+    <div class="left-panel">
+      <div>
+        <h1>User <span>Signup</span></h1>
+        <p class="lead">Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit lonee setuer diam nonummy nibh aumod tincidunt.</p>
+
+        <ul class="feature-list">
+          <li>
+            <span class="check-icon green">
+              <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>Lorem ipsum dolor sit amet, conse ctetuer adipiscing diam nonummy.</span>
+          </li>
+          <li>
+            <span class="check-icon yellow">
+              <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit nonummy.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Laptop -->
+      <div class="laptop-wrap">
+        <div class="laptop">
+          <div class="laptop-body">
+            <div class="laptop-screen">
+              <div class="avatar-icon">
+                <div class="avatar-circle">
+                  <div class="avatar-head"></div>
+                  <div class="avatar-body"></div>
+                </div>
+                <div class="arrow-btn">
+                  <svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="laptop-base"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="right-panel">
+      <div class="form-card">
+        <div class="form-grid">
+
+          <!-- Account Type -->
+          <div class="field-group">
+            <label>Account Type</label>
+            <div class="select-wrap">
+              <select>
+                <option>Classic Business</option>
+                <option>Personal</option>
+                <option>Enterprise</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Full Name -->
+          <div class="field-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="John M. Smith" />
+          </div>
+
+          <!-- Email -->
+          <div class="field-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="Your Email Address" />
+          </div>
+
+          <!-- Username -->
+          <div class="field-group">
+            <label>Username</label>
+            <input type="text" placeholder="@example123" />
+          </div>
+
+          <!-- Phone -->
+          <div class="field-group">
+            <label>Phone Number</label>
+            <div class="phone-wrap">
+              <div class="phone-flag">
+                <div class="flag-circle"></div>
+                <span>123</span>
+                <span class="caret">▾</span>
+              </div>
+              <input type="tel" placeholder="1234 5678 9101" />
+            </div>
+          </div>
+
+          <!-- Date of Birth -->
+          <div class="field-group">
+            <label>Date of Birth</label>
+            <div class="dob-row">
+              <div class="select-wrap">
+                <select><option>Day</option>
+                  <script>for(let i=1;i<=31;i++) document.write(`<option>${i}</option>`)</script>
+                </select>
+              </div>
+              <div class="select-wrap">
+                <select>
+                  <option>Month</option>
+                  <option>Jan</option><option>Feb</option><option>Mar</option>
+                  <option>Apr</option><option>May</option><option>Jun</option>
+                  <option>Jul</option><option>Aug</option><option>Sep</option>
+                  <option>Oct</option><option>Nov</option><option>Dec</option>
+                </select>
+              </div>
+              <div class="select-wrap">
+                <select><option>Year</option>
+                  <script>for(let y=2024;y>=1940;y--) document.write(`<option>${y}</option>`)</script>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="field-group">
+            <label>Password</label>
+            <div class="pass-wrap">
+              <input type="password" id="pwd1" value="••••••••••••" />
+              <button class="pass-toggle" onclick="togglePass('pwd1', this)" type="button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="field-group">
+            <label>Confirm Password</label>
+            <div class="pass-wrap">
+              <input type="password" id="pwd2" value="••••••••••••" />
+              <button class="pass-toggle" onclick="togglePass('pwd2', this)" type="button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Terms + Submit -->
+        <div class="form-bottom">
+          <div class="terms-row">
+            <input type="checkbox" id="terms" checked />
+            <label for="terms">Agree with <a href="#">Terms of Use</a></label>
+          </div>
+          <button class="btn-submit">Save &amp; Next</button>
+        </div>
+
+        <div class="login-link">
+          Already Have an Account? <a href="#">Login Now</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function togglePass(id, btn) {
+    const input = document.getElementById(id);
+    if (input.type === 'password') {
+      input.type = 'text';
+      btn.style.color = 'var(--blue)';
+    } else {
+      input.type = 'password';
+      btn.style.color = '';
+    }
+  }
+</script>
+
+</body>
+</html>
