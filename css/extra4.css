@@ -1,63 +1,145 @@
-body {
+/* RESET BÁSICO */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* FUNDO GERAL */
-.bg {
-  background: #7fa3a3;
-  height: 100vh;
+/* VARIÁVEIS (cores do sistema) */
+:root {
+  --blue: #1A6BFF;
+  --blue-dark: #1455CC;
+  --teal-bg: #5A9EA0;
+  --light-bg: #EAF4F4;
+  --text-dark: #1A1F36;
+  --text-mid: #5A6070;
+  --white: #FFFFFF;
+}
+
+/* BODY */
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--teal-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* CARD PRINCIPAL */
+.page-card {
+  background: var(--light-bg);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 960px;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+}
+
+/* LOGO */
+.logo {
+  background: orange;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* MENU */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  margin-left: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-mid);
+}
+
+/* BOTÃO */
+.live-chat-btn {
+  margin-left: auto;
+  background: var(--blue);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+}
+
+/* LAYOUT */
+.body-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* LADO ESQUERDO */
+.left-panel {
+  padding: 30px;
+}
+
+/* TÍTULO */
+.left-panel h1 {
+  font-size: 40px;
+}
+
+/* LADO DIREITO */
+.right-panel {
+  background: var(--blue);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* CONTAINER COM IMAGEM */
-.container-img {
-  width: 2100px;
-  height: 1000px;
-
-  background: url("../img/Cadastro\ de\ usuário\ com\ laptop.png") no-repeat center;
-  background-size: cover;
-
-  position: relative;
-  border-radius: 5px;
-}
-
-/* FORM FLUTUANTE */
-.form-box {
-  position: absolute;
-  right: 400px;
-  top: 200px;
-
-  width: 480px;
+/* FORMULÁRIO */
+.form-card {
   background: white;
-  padding: 30px;
-  border-radius: 20px;
-
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  padding: 25px;
+  border-radius: 15px;
+  width: 90%;
 }
 
-/* INPUT */
-.input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 25px;
-  border: 1px solid #ddd;
+/* GRID DO FORM */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* CAMPOS */
+.field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* INPUTS */
+input, select {
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
 }
 
 /* BOTÃO */
-.bottom {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.btn-submit {
+  background: var(--blue);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
 }
 
-.bottom button {
-  background: linear-gradient(90deg, #2f80ed, #56ccf2);
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 25px;
+/* RESPONSIVO */
+@media (max-width: 700px) {
+  .body-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
 }
